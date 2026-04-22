@@ -10,7 +10,7 @@ spec:
   ingress:
     - fromEndpoints:
         - matchLabels:
-            io.kubernetes.pod.namespace: traefik
+            io.kubernetes.pod.namespace: kommander
       toPorts:
         - ports:
             - port: "9898"
