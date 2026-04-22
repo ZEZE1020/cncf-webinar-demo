@@ -1,0 +1,26 @@
+# DO NOT commit this file -- apply manually during demo to show Gatekeeper denial:
+#   kubectl apply -f clusters/demo/step-3-security/bad-deployment.yaml
+#
+# This deployment violates both constraints:
+#   1. Missing required label: app.kubernetes.io/name
+#   2. Uses the :latest image tag
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bad-app
+  namespace: webinar-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bad-app
+  template:
+    metadata:
+      labels:
+        app: bad-app
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
