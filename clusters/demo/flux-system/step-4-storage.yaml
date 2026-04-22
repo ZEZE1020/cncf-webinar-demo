@@ -5,7 +5,7 @@ metadata:
   namespace: kommander-flux
 spec:
   dependsOn:
-    - name: step-3-security
+    - name: step-3b-security-constraints
   interval: 10s
   path: ./clusters/demo/step-4-storage
   prune: true

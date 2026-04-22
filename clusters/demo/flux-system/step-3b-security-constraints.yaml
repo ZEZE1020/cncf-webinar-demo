@@ -1,13 +1,14 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: step-3-security
+  name: step-3b-security-constraints
   namespace: kommander-flux
 spec:
   dependsOn:
-    - name: step-2-networking
+    - name: step-3-security
+    - name: gatekeeper-library
   interval: 5m
-  path: ./clusters/demo/step-3-security
+  path: ./clusters/demo/step-3b-security-constraints
   prune: true
   sourceRef:
     kind: GitRepository
